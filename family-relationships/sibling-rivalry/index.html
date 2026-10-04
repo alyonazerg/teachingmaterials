@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f4ed">
+<title>Sibling Rivalry · Reading Lab</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="eyebrow">ROOTS → GETTING ON · READING LAB</div>
+  <h1>Sibling rivalry:<br><em>when brothers fall out</em></h1>
+  <p class="dek">An adapted classroom reading based on the article in <strong>Ready for C1 Advanced, Unit 5</strong>.</p>
+</header>
+
+<nav class="progress" aria-label="Article sections">
+  <a href="#section-a">A</a><a href="#section-b">B</a><a href="#section-c">C</a><a href="#section-d">D</a><a href="#your-highlights">My highlights</a>
+</nav>
+
+<main>
+<section class="instructions">
+ <div>
+  <div class="eyebrow">HOW TO READ</div>
+  <h2>Select → colour → discuss</h2>
+  <p>Select any words or phrases in the article. Then tap one of the colour buttons that appears. Your highlights are saved on this device.</p>
+ </div>
+ <div class="legend">
+   <button data-color="cause" type="button"><i class="yellow"></i><b>Cause / consequence</b><small>What creates or changes conflict?</small></button>
+   <button data-color="discuss" type="button"><i class="blue"></i><b>Worth discussing</b><small>Surprising, debatable or important</small></button>
+   <button data-color="language" type="button"><i class="green"></i><b>Language to reuse</b><small>A useful phrase for speaking</small></button>
+ </div>
+</section>
+
+<section class="article-section" id="section-a">
+  <div class="section-kicker">SECTION A</div>
+  <h2>Ten years apart</h2>
+  <div class="selectable">
+    <p>Two brothers have not spoken directly for a decade. During that time, both of their lives have changed, but news about each other has travelled through relatives rather than through conversation.</p>
+    <p>The writer believes reconciliation is now extremely unlikely. He regrets this, but also argues that serious conflict between adult siblings is far from rare. Resentment can build up slowly until distance begins to feel normal.</p>
+  </div>
+  <div class="microtask"><span>Think</span>What seems to keep the conflict alive: one major event, or an accumulation of smaller experiences?</div>
+</section>
+
+<section class="article-section" id="section-b">
+  <div class="section-kicker">SECTION B</div>
+  <h2>Where rivalry begins</h2>
+  <div class="selectable">
+    <p>Research on sibling relationships suggests that tension may begin surprisingly early. An older child can experience the arrival of a younger sibling as a loss of attention, status or fairness.</p>
+    <p>Differences in parental treatment can deepen those feelings, even when parents do not intend to create competition. In one family, two brothers also shared the same professional ambition, which made comparison difficult to escape.</p>
+  </div>
+  <div class="microtask"><span>Think</span>Which is more damaging in the long term: competition itself or the feeling of being treated unfairly?</div>
+</section>
+
+<section class="article-section" id="section-c">
+  <div class="section-kicker">SECTION C</div>
+  <h2>Different people, same family</h2>
+  <div class="selectable">
+    <p>Some siblings eventually learn to avoid open conflict because they do not want their own children to see hostility as an acceptable family pattern.</p>
+    <p>The writer's experience was different. He and his brother had very different personalities and struggled to find common ground. As the older child, he was often expected to look after his younger brother and came to resent that responsibility rather than see it as closeness.</p>
+  </div>
+  <div class="microtask"><span>Think</span>How can family roles shape a relationship even when nobody deliberately chooses those roles?</div>
+</section>
+
+<section class="article-section" id="section-d">
+  <div class="section-kicker">SECTION D</div>
+  <h2>Patterns we pass on</h2>
+  <div class="selectable">
+    <p>Leaving home finally gave the brothers some breathing space, but distance did not repair the relationship. Their occasional meetings became increasingly tense and eventually the relationship broke down completely.</p>
+    <p>Now a parent himself, the writer worries less about repeating particular arguments than about passing a dysfunctional pattern on to the next generation. He wants his daughters to inherit something different.</p>
+  </div>
+  <div class="microtask"><span>Think</span>Which family patterns can people consciously choose to change?</div>
+</section>
+
+<section class="collection" id="your-highlights">
+ <div class="eyebrow">RETRIEVAL → PRODUCTION</div>
+ <h2>Your highlights</h2>
+ <p class="collection-intro">Use your green phrases in the final discussion. Tap a saved highlight below to jump back to it.</p>
+ <div class="tabs">
+   <button class="tab active" data-filter="language">Language</button>
+   <button class="tab" data-filter="cause">Causes</button>
+   <button class="tab" data-filter="discuss">Discuss</button>
+ </div>
+ <div id="highlight-list" class="highlight-list"></div>
+ <button id="clear-all" class="clear" type="button">Clear my highlights</button>
+</section>
+
+<section class="final-task">
+ <div class="eyebrow">PAIR DISCUSSION · 4–5 MIN</div>
+ <h2>Do we inherit family relationships?</h2>
+ <p>Choose one claim. Agree, disagree or qualify it using evidence from the reading and at least <strong>two green phrases</strong>.</p>
+ <div class="claims">
+   <blockquote>“Childhood roles follow siblings into adulthood.”</blockquote>
+   <blockquote>“Distance solves conflict better than confrontation.”</blockquote>
+   <blockquote>“We can choose which family patterns to pass on.”</blockquote>
+ </div>
+</section>
+</main>
+
+<div id="palette" class="palette" hidden>
+ <button data-color="cause" aria-label="Highlight as cause or consequence"><i class="yellow"></i><span>Cause</span></button>
+ <button data-color="discuss" aria-label="Highlight as worth discussing"><i class="blue"></i><span>Discuss</span></button>
+ <button data-color="language" aria-label="Highlight as useful language"><i class="green"></i><span>Language</span></button>
+ <button data-color="remove" aria-label="Remove highlight"><span>×</span><span>Remove</span></button>
+</div>
+
+<footer>Adapted for classroom use · Source: Ready for C1 Advanced, 4th ed. · Unit 5 Getting On</footer>
+<script src="app.js"></script>
+</body>
+</html>
