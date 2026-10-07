@@ -10,6 +10,18 @@ function save(){
 }
 function applyClasses(mark,types){
   mark.className='hl '+types.map(t=>'hl-'+t).join(' ');
+  mark.style.background='';
+  // Multiple categories need a visibly multi-colour highlight, not just multiple CSS classes
+  // competing for the same background property.
+  const css={cause:'var(--yellow)',discuss:'var(--blue)',language:'var(--mint)'};
+  if(types.length===1){mark.style.background=css[types[0]]}
+  else if(types.length>1){
+    const stops=types.map((t,i)=>{
+      const a=Math.round(i*100/types.length), b=Math.round((i+1)*100/types.length);
+      return css[t]+' '+a+'%, '+css[t]+' '+b+'%';
+    }).join(', ');
+    mark.style.background='linear-gradient(180deg, '+stops+')';
+  }
 }
 function wrap(range,type,id='hl-'+Date.now()+'-'+Math.random().toString(36).slice(2,6),doSave=true){
   if(range.collapsed||!range.toString().trim())return;
