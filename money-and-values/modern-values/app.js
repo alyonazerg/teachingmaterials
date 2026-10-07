@@ -1,4 +1,4 @@
-const palette=document.querySelector('#palette'),key='modern-values-highlights-v2';let pendingRange=null,currentFilter='language';const colours=['cause','discuss','language'];
+const palette=document.querySelector('#palette'),key='modern-values-highlights-v2';let pendingRange=null,pendingMark=null,currentFilter='language';const colours=['cause','discuss','language'];
 
 function save(){
   const data=[...document.querySelectorAll('mark.hl')].map(m=>({
@@ -51,14 +51,26 @@ document.addEventListener('selectionchange',()=>{
   const s=window.getSelection();if(!s||s.isCollapsed)return;const r=s.getRangeAt(0);
   if(r.toString().trim()&&r.commonAncestorContainer.parentElement?.closest('.selectable')){pendingRange=r.cloneRange();palette.hidden=false}
 });
+
+// If a phrase is already highlighted, tapping/clicking it opens the palette again.
+// This avoids trying to create nested <mark> elements, which browsers/mobile selection handle poorly.
+document.addEventListener('click',e=>{
+  const m=e.target.closest('mark.hl');
+  if(!m)return;
+  pendingMark=m; pendingRange=null; palette.hidden=false;
+});
 palette.addEventListener('pointerdown',e=>e.preventDefault());
 palette.addEventListener('click',e=>{
   const b=e.target.closest('button');if(!b)return;const type=b.dataset.color;
   if(type==='remove'){
-    const s=window.getSelection(),m=s?.anchorNode?.parentElement?.closest('mark.hl');
+    const m=pendingMark || window.getSelection()?.anchorNode?.parentElement?.closest('mark.hl');
     if(m){m.replaceWith(...m.childNodes);save()}
+  }else if(pendingMark){
+    const types=colours.filter(c=>pendingMark.classList.contains('hl-'+c));
+    if(!types.includes(type))types.push(type);
+    applyClasses(pendingMark,types);save();
   }else if(pendingRange)wrap(pendingRange,type);
-  window.getSelection()?.removeAllRanges();pendingRange=null;palette.hidden=true
+  window.getSelection()?.removeAllRanges();pendingRange=null;pendingMark=null;palette.hidden=true
 });
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentFilter=b.dataset.filter;renderList()
